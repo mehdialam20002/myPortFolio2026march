@@ -34,7 +34,7 @@ h6 {
 }
 
 body {
-  overflow: hidden;
+  overflow: auto;
 }
 
 a {
@@ -94,6 +94,12 @@ body {
 
 .split-line {
   overflow: hidden;
+}
+
+.split-word,
+.split-char {
+  display: inline-block;
+  white-space: pre;
 }
 
 .split-h2 {
