@@ -79,14 +79,10 @@ div.resume-button span {
   width: 100%;
   z-index: 99999;
 }
-@media only screen and (min-width: 900px) {
-  .social-icons {
-    display: flex;
-    gap: 20px;
-  }
-  .social-icons a {
-    font-size: 28px;
-  }
+/* Vertical social rail removed from the hero — it collided with the hero text.
+   Social links live in the Contact section. */
+.social-icons {
+  display: none !important;
 }
 @media only screen and (min-width: 768px) {
   .resume-button {
