@@ -5,6 +5,10 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  # AI_PROVIDER's value ("groq"/"gemini") is not a secret — it's a plain word
+  # that legitimately appears in code/docs, so exclude it from secret scanning.
+  # Real secrets (GROQ_API_KEY, OAUTH_GITHUB_CLIENT_SECRET) are never in the repo.
+  SECRETS_SCAN_OMIT_KEYS = "AI_PROVIDER"
 
 # Friendly endpoint -> serverless function (keeps the API key server-side)
 [[redirects]]
