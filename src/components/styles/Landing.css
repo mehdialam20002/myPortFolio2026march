@@ -58,6 +58,7 @@
   align-items: baseline;
   gap: 20px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 /* top meta */
