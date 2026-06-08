@@ -4,7 +4,71 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <title>Mehdi — Content Manager</title>
+    <title>Mehdi · Content Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230a0a0a'/><text y='73' x='50' font-size='64' font-family='Arial' font-weight='bold' text-anchor='middle' fill='%23ff5630'>M</text></svg>"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brand: #ff5630;
+        --brand-soft: #fff1ec;
+      }
+
+      /* Brand typography across the editor (SVG icons are unaffected). */
+      body,
+      h1, h2, h3, h4, h5, h6,
+      p, span, a, li, label,
+      input, textarea, select, button {
+        font-family: "Space Grotesk", system-ui, -apple-system, sans-serif !important;
+      }
+
+      h1, h2, h3, .nc-collectionPage-title {
+        font-family: "Bricolage Grotesque", "Space Grotesk", sans-serif !important;
+        letter-spacing: -0.01em;
+      }
+
+      /* Soft, warm canvas instead of the flat grey. */
+      html, body, #nc-root {
+        background: #f6f4ef !important;
+      }
+
+      /* Accent the primary actions / active states with the portfolio orange. */
+      [class*="Active"][class*="NavLink"],
+      a[class*="NavLink"]:hover {
+        color: var(--brand) !important;
+      }
+
+      button[class*="primary"],
+      [class*="Button"][class*="primary"] {
+        background-color: var(--brand) !important;
+        border-color: var(--brand) !important;
+      }
+
+      ::selection {
+        background: var(--brand);
+        color: #fff;
+      }
+
+      /* Rounder, softer cards & inputs for a modern feel. */
+      [class*="Card"],
+      [class*="card"],
+      [class*="control-input"],
+      input[type="text"],
+      textarea {
+        border-radius: 12px !important;
+      }
+
+      *:focus-visible {
+        outline: 2px solid var(--brand) !important;
+        outline-offset: 2px;
+      }
+    </style>
   </head>
   <body>
     <!-- Decap CMS -->

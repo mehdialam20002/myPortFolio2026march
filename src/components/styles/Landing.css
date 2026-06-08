@@ -47,7 +47,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(96px, 13vh, 150px) 0 clamp(28px, 5vh, 50px);
+  padding: clamp(96px, 13vh, 150px) 0 clamp(64px, 10vh, 104px);
   min-height: var(--vh);
   box-sizing: border-box;
 }

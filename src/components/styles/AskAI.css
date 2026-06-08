@@ -292,6 +292,17 @@
   cursor: not-allowed;
 }
 
+/* Lift the widget above the fixed footer / resume bar on desktop */
+@media only screen and (min-width: 1025px) {
+  .askai-fab,
+  .askai-panel {
+    bottom: 92px;
+  }
+  .askai-panel {
+    height: min(560px, calc(100vh - 140px));
+  }
+}
+
 /* ── Mobile: icon-only FAB, full-ish panel ── */
 @media only screen and (max-width: 600px) {
   .askai-fab-label {
