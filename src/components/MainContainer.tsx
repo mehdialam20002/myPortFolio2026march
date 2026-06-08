@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import About from "./About";
 import AskAI from "./AskAI";
 import BookCall from "./BookCall";
@@ -11,14 +11,13 @@ import Navbar from "./Navbar";
 import ScrollProgress from "./ScrollProgress";
 import Skills from "./Skills";
 import Credentials from "./Credentials";
+import Testimonials from "./Testimonials";
 import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
 import { setCareerTimeline } from "./utils/careerFX";
 import { initSmoothScroll, destroySmoothScroll } from "./utils/smoothScroll";
-
-const TechStack = lazy(() => import("./TechStack"));
 
 const MainContainer = () => {
   useEffect(() => {
@@ -58,10 +57,8 @@ const MainContainer = () => {
             <MarqueeStrip />
             <Work />
             <Skills />
-            <Suspense fallback={null}>
-              <TechStack />
-            </Suspense>
             <Credentials />
+            <Testimonials />
             <BookCall />
             <Contact />
           </div>

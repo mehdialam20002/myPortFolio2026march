@@ -119,10 +119,12 @@ collections:
             fields:
               - { name: title, label: Title, widget: string }
               - { name: category, label: Category, widget: string }
+              - { name: impact, label: "Impact (one line)", widget: string, required: false, hint: "e.g. Cut load time by ~30%" }
               - { name: tools, label: Tools, widget: string, hint: "Separate with ' · ' e.g. React · Node · MySQL" }
               - { name: year, label: Year, widget: string }
               - { name: image, label: Preview image, widget: image, required: false, hint: "Upload a screenshot or paste an image URL." }
               - { name: link, label: Live link, widget: string }
+              - { name: repo, label: "GitHub / Code link", widget: string, required: false, hint: "Paste the repo URL to show a 'Code' button." }
 
   - name: skills
     label: "6 · Skills"
@@ -247,3 +249,25 @@ collections:
           - { name: suggestions, label: "Suggested questions", widget: list, field: { name: q, label: Question, widget: string } }
           - { name: instructions, label: "AI behaviour / persona", widget: text, hint: "How the assistant should talk and behave." }
           - { name: knowledge, label: "AI knowledge (facts about you)", widget: text, hint: "Everything the AI is allowed to know. Update this to teach it new facts." }
+
+  - name: testimonials
+    label: "11 · Testimonials"
+    description: "Quotes / recommendations. Replace the seed ones with real LinkedIn recommendations."
+    files:
+      - name: testimonials
+        label: Testimonials
+        file: src/content/testimonials.json
+        fields:
+          - { name: eyebrow, label: Eyebrow, widget: string }
+          - { name: headingBefore, label: "Heading — start", widget: string }
+          - { name: headingHighlight, label: "Heading — highlight", widget: string }
+          - { name: headingAfter, label: "Heading — end", widget: string, required: false }
+          - name: items
+            label: Testimonials
+            label_singular: Testimonial
+            widget: list
+            summary: "{{fields.name}} — {{fields.role}}"
+            fields:
+              - { name: quote, label: Quote, widget: text }
+              - { name: name, label: Name, widget: string }
+              - { name: role, label: "Role / Company", widget: string }

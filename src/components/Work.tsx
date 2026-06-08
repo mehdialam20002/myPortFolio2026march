@@ -1,6 +1,7 @@
 import { useRef, useState, type MouseEvent } from "react";
 import "./styles/Work.css";
 import { MdArrowOutward } from "react-icons/md";
+import { FiGithub } from "react-icons/fi";
 import projectsContent from "../content/projects.json";
 
 const projects = projectsContent.items;
@@ -17,11 +18,7 @@ const Work = () => {
   };
 
   return (
-    <section
-      className="work-section"
-      id="work"
-      onMouseMove={handleMove}
-    >
+    <section className="work-section" id="work" onMouseMove={handleMove}>
       <div className="work-container section-container">
         <div className="work-head">
           <span className="eyebrow">{projectsContent.eyebrow}</span>
@@ -41,24 +38,48 @@ const Work = () => {
               onMouseEnter={() => setActive(index)}
               onMouseLeave={() => setActive(null)}
             >
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noreferrer"
-                className="work-row-link"
-                data-cursor="disable"
-              >
+              <div className="work-row-link">
                 <span className="work-num">{`0${index + 1}`}</span>
-                <span className="work-title">{project.title}</span>
+                <a
+                  className="work-title"
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-cursor="disable"
+                >
+                  {project.title}
+                </a>
                 <span className="work-meta">
                   <span className="work-cat">{project.category}</span>
+                  {project.impact && (
+                    <span className="work-impact">{project.impact}</span>
+                  )}
                   <span className="work-tools">{project.tools}</span>
                 </span>
                 <span className="work-year">{project.year}</span>
-                <span className="work-arrow">
-                  <MdArrowOutward />
+                <span className="work-links">
+                  <a
+                    className="work-link-btn"
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    data-cursor="disable"
+                  >
+                    Live <MdArrowOutward />
+                  </a>
+                  {project.repo && (
+                    <a
+                      className="work-link-btn"
+                      href={project.repo}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor="disable"
+                    >
+                      Code <FiGithub />
+                    </a>
+                  )}
                 </span>
-              </a>
+              </div>
             </li>
           ))}
         </ul>

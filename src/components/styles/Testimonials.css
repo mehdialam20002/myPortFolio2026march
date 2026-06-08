@@ -1,0 +1,94 @@
+.tst-section {
+  margin: auto;
+  position: relative;
+  z-index: 2;
+  background-color: var(--backgroundColor);
+  padding: clamp(44px, 6.5vw, 85px) 0;
+}
+
+.tst-head {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: clamp(26px, 4vw, 48px);
+}
+
+.tst-section h2 {
+  font-size: clamp(1.8rem, 3.8vw, 3.3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.tst-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.6vw, 22px);
+}
+
+.tst-card {
+  margin: 0;
+  padding: clamp(22px, 2.4vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
+}
+
+.tst-card:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--accentColor) 50%, var(--line));
+}
+
+.tst-quote-mark {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 0.5;
+  color: var(--accentColor);
+  height: 28px;
+}
+
+.tst-card blockquote {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+  line-height: 1.55;
+  color: var(--fg);
+  flex: 1;
+}
+
+.tst-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.tst-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.tst-role {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media only screen and (max-width: 900px) {
+  .tst-grid {
+    grid-template-columns: 1fr;
+  }
+}

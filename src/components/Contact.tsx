@@ -45,15 +45,11 @@ const Contact = () => {
           </div>
 
           <div className="contact-block">
-            <span className="contact-label">Direct</span>
-            <a
-              href={contact.phoneHref}
-              className="contact-line"
-              data-cursor="disable"
-            >
-              {contact.phone}
+            <span className="contact-label">Based in</span>
+            <span className="contact-line">{contact.location}</span>
+            <a href="#book" className="contact-line contact-book" data-cursor="disable">
+              Book a 1:1 call ↗
             </a>
-            <span className="contact-line contact-muted">{contact.location}</span>
           </div>
 
           <div className="contact-block contact-block-end">
