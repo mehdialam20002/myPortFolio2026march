@@ -25,17 +25,17 @@ export const LoadingProvider = ({ children }: PropsWithChildren) => {
     setLoading,
   };
 
-  // Self-driven loading progress (no 3D model to wait on anymore).
+  // Self-driven loading progress (no 3D model to wait on anymore). Fast.
   useEffect(() => {
     let current = 0;
     const id = setInterval(() => {
-      current += Math.random() * 13 + 5;
+      current += Math.random() * 26 + 16;
       if (current >= 100) {
         current = 100;
         clearInterval(id);
       }
       setLoading(Math.round(current));
-    }, 90);
+    }, 45);
     return () => clearInterval(id);
   }, []);
 
