@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FiMenu, FiX } from "react-icons/fi";
 import HoverLinks from "./HoverLinks";
 import ThemeToggle from "./ThemeToggle";
 import { gsap } from "gsap";
@@ -10,8 +11,12 @@ import "./styles/Navbar.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
-    const links = Array.from(document.querySelectorAll<HTMLAnchorElement>(".header ul a"));
+    const links = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>(".header ul a")
+    );
 
     const handleClick = (e: MouseEvent) => {
       if (window.innerWidth > 1024) {
@@ -32,11 +37,11 @@ const Navbar = () => {
     };
 
     links.forEach((link) => link.addEventListener("click", handleClick));
-
     return () => {
       links.forEach((link) => link.removeEventListener("click", handleClick));
     };
   }, []);
+
   return (
     <>
       <div className="header">
@@ -50,20 +55,39 @@ const Navbar = () => {
         >
           {site.navEmail}
         </a>
-        <ul>
+
+        <ul className={open ? "is-open" : ""}>
           {site.navLinks.map((link) => (
             <li key={link.href}>
-              <a data-href={link.href} href={link.href}>
+              <a
+                data-href={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+              >
                 <HoverLinks text={link.label} />
               </a>
             </li>
           ))}
-          <li className="nav-toggle-li">
-            <ThemeToggle />
-          </li>
         </ul>
+
+        <div className="nav-actions">
+          <ThemeToggle />
+          <button
+            className="nav-burger"
+            onClick={() => setOpen((o) => !o)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            data-cursor="disable"
+          >
+            {open ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
       </div>
 
+      <div
+        className={`nav-backdrop ${open ? "is-open" : ""}`}
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
       <div className="nav-fade"></div>
     </>
   );

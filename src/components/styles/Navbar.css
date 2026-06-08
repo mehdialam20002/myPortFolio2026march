@@ -1,11 +1,11 @@
 .header {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   max-width: var(--cMaxWidth);
   width: var(--cWidth);
   justify-content: space-between;
-  padding: 18px 0px;
+  padding: 16px 0px;
   margin-bottom: -100px;
   box-sizing: border-box;
   position: fixed;
@@ -14,26 +14,15 @@
   top: 0;
   z-index: 9999;
 }
-.header ul {
-  font-size: 12px;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  column-gap: 40px;
-  row-gap: 8px;
-  align-items: end;
-}
-.header ul li {
-  margin-left: 0px;
-  letter-spacing: 0.18em;
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-weight: 400;
+
+.navbar-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
-  cursor: pointer;
 }
+
 .navbar-connect {
   display: none;
   font-family: var(--font-mono);
@@ -46,17 +35,32 @@
 .navbar-connect:hover {
   color: var(--accentColor);
 }
-.navbar-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 16px;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-}
-.nav-toggle-li {
+
+.header ul {
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  column-gap: 38px;
+  font-size: 13px;
 }
+.header ul li {
+  letter-spacing: 0.16em;
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* right-side actions (theme + burger) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .theme-toggle {
   background: transparent;
   border: 1px solid var(--line);
@@ -69,6 +73,7 @@
   justify-content: center;
   cursor: pointer;
   font-size: 15px;
+  flex-shrink: 0;
   transition: border-color 0.3s ease, color 0.3s ease, transform 0.4s ease;
 }
 .theme-toggle:hover {
@@ -79,39 +84,101 @@
 .theme-toggle-icon {
   display: flex;
 }
-@media only screen and (min-width: 500px) {
-  .header {
-    padding: 20px 0px;
-  }
-  .header ul {
-    flex-direction: row;
-    align-items: center;
-    font-size: 14px;
-  }
-  .header ul li {
-    color: var(--fg);
-  }
-  .navbar-title {
-    font-size: 16px;
-  }
+
+.nav-burger {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 19px;
+  flex-shrink: 0;
+  z-index: 10001;
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
-@media only screen and (min-width: 900px) {
+.nav-burger:hover {
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+}
+
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 9997;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.nav-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* show email only on wide screens (avoids crowding the nav) */
+@media only screen and (min-width: 1100px) {
   .navbar-connect {
     display: block;
   }
 }
+
 @media only screen and (min-width: 1200px) {
   .header {
-    padding: 24px 0px;
+    padding: 22px 0px;
   }
   .header ul {
     column-gap: 44px;
-    font-size: 13px;
-  }
-  .navbar-connect {
-    font-size: 13px;
   }
   .navbar-title {
-    font-size: 16px;
+    font-size: 17px;
+  }
+}
+
+/* tablet: tighten the inline nav */
+@media only screen and (max-width: 1000px) {
+  .header ul {
+    column-gap: 26px;
+    font-size: 12px;
+  }
+}
+
+/* ── Mobile: slide-in hamburger menu ── */
+@media only screen and (max-width: 768px) {
+  .nav-burger {
+    display: flex;
+  }
+  .header ul {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(82vw, 320px);
+    height: 100vh;
+    height: 100dvh;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 28px;
+    column-gap: 0;
+    background: var(--bg-soft);
+    border-left: 1px solid var(--line);
+    padding: 0 40px;
+    box-sizing: border-box;
+    transform: translateX(100%);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 9998;
+  }
+  .header ul.is-open {
+    transform: translateX(0);
+    box-shadow: -24px 0 70px rgba(0, 0, 0, 0.45);
+  }
+  .header ul li {
+    font-size: 22px;
+    letter-spacing: 0.04em;
   }
 }

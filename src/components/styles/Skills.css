@@ -14,7 +14,7 @@
 }
 
 .skills-section h2 {
-  font-size: clamp(1.8rem, 3.8vw, 3.3rem);
+  font-size: clamp(2rem, 4.2vw, 3.8rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   text-transform: uppercase;

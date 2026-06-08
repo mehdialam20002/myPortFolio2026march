@@ -238,12 +238,6 @@ body {
   }
 }
 
-@media screen and (min-width: 1600px) {
-  body {
-    --cWidth: 86%;
-  }
-}
-
 
 /* ───────────────────────── Lenis smooth scroll ───────────────────────── */
 html.lenis,
