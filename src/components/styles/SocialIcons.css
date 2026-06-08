@@ -8,9 +8,9 @@
   transform: translateX(-50%);
 }
 .social-icons {
-  position: absolute;
-  left: -20px;
-  bottom: 20px;
+  position: fixed;
+  left: clamp(8px, 1.4vw, 24px);
+  bottom: 24px;
   display: none;
   flex-direction: column;
   gap: 8px;

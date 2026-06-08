@@ -205,14 +205,6 @@
   left: 0;
 }
 
-/* Clear the fixed social rail on the left so it doesn't overlap hero text. */
-@media only screen and (min-width: 901px) {
-  .hero-mid,
-  .hero-bottom {
-    padding-left: clamp(44px, 4.5vw, 78px);
-  }
-}
-
 /* ── Responsive ── */
 @media only screen and (max-width: 900px) {
   .hero-inner {
