@@ -5,10 +5,12 @@ import Contact from "./Contact";
 import Cursor from "./Cursor";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
+import ScrollProgress from "./ScrollProgress";
 import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
+import { initSmoothScroll, destroySmoothScroll } from "./utils/smoothScroll";
 
 const TechStack = lazy(() => import("./TechStack"));
 
@@ -29,8 +31,17 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     };
   }, [isDesktopView]);
 
+  useEffect(() => {
+    initSmoothScroll();
+    return () => {
+      destroySmoothScroll();
+    };
+  }, []);
+
   return (
     <div className="container-main">
+      <div className="bg-vignette" aria-hidden="true" />
+      <ScrollProgress />
       <Cursor />
       <Navbar />
       <SocialIcons />

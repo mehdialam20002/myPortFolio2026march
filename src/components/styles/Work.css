@@ -7,7 +7,7 @@
 }
 
 .work-section h2 {
-  font-size: 70px;
+  font-size: clamp(2.3rem, 4.6vw + 0.4rem, 4.4rem);
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 50px;
@@ -62,11 +62,16 @@
 }
 
 .carousel-number h3 {
-  font-size: 60px;
+  font-size: clamp(2.2rem, 3.6vw, 3.75rem);
   line-height: 1;
   margin: 0;
   font-weight: 600;
-  opacity: 0.3;
+  background: linear-gradient(180deg, #5eead4, rgba(94, 234, 212, 0.15));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  opacity: 0.85;
 }
 
 .carousel-details {
@@ -76,7 +81,7 @@
 }
 
 .carousel-details h4 {
-  font-size: 28px;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
   font-weight: 500;
   margin: 0;
 }
@@ -114,6 +119,33 @@
   align-items: center;
 }
 
+/* ── Active slide reveal ── */
+.carousel-slide .carousel-number,
+.carousel-slide .carousel-details,
+.carousel-slide .carousel-image-wrapper {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-slide.is-active .carousel-number {
+  opacity: 0.85;
+  transform: translateY(0);
+  transition-delay: 0.05s;
+}
+
+.carousel-slide.is-active .carousel-details {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.13s;
+}
+
+.carousel-slide.is-active .carousel-image-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
 /* ── Navigation Arrows ── */
 .carousel-arrow {
   position: absolute;
@@ -135,11 +167,25 @@
   backdrop-filter: blur(8px);
 }
 
+.carousel-arrow-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-out;
+}
+
 .carousel-arrow:hover {
   background: rgba(94, 234, 212, 0.15);
   border-color: var(--accentColor);
   color: var(--accentColor);
-  box-shadow: 0 0 20px rgba(94, 234, 212, 0.15);
+  box-shadow: 0 0 24px rgba(94, 234, 212, 0.25);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.95);
 }
 
 .carousel-arrow-left {
@@ -161,11 +207,11 @@
 .carousel-dot {
   width: 10px;
   height: 10px;
-  border-radius: 50%;
+  border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: transparent;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), all 0.3s ease;
   padding: 0;
 }
 
@@ -175,6 +221,7 @@
 }
 
 .carousel-dot-active {
+  width: 28px;
   background: var(--accentColor);
   border-color: var(--accentColor);
   box-shadow: 0 0 8px rgba(94, 234, 212, 0.4);
@@ -189,6 +236,15 @@
 
 .work-image-in {
   position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.work-image-in:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px -20px rgba(94, 234, 212, 0.35),
+    0 0 0 1px rgba(94, 234, 212, 0.25);
 }
 
 .work-link {
@@ -231,6 +287,12 @@
   max-width: 100%;
   max-height: 400px;
   border-radius: 8px;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-image-in:hover img {
+  transform: scale(1.05);
 }
 
 /* ── Responsive ── */
@@ -245,18 +307,6 @@
 }
 
 @media only screen and (max-width: 1400px) {
-  .work-section h2 {
-    font-size: 50px;
-  }
-
-  .carousel-details h4 {
-    font-size: 22px;
-  }
-
-  .carousel-number h3 {
-    font-size: 45px;
-  }
-
   .carousel-content {
     gap: 40px;
   }
@@ -305,16 +355,7 @@
   }
 
   .work-section h2 {
-    font-size: 40px;
     margin-bottom: 30px;
-  }
-
-  .carousel-number h3 {
-    font-size: 35px;
-  }
-
-  .carousel-details h4 {
-    font-size: 20px;
   }
 
   .carousel-content {

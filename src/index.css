@@ -120,7 +120,7 @@ body {
 }
 
 .techstack h2 {
-  font-size: 80px;
+  font-size: clamp(2.2rem, 5.5vw, 5rem);
   text-align: center;
   position: absolute;
   width: 100%;
@@ -136,8 +136,105 @@ body {
   }
 }
 
-@media screen and (max-width: 900px) {
-  .techstack h2 {
-    font-size: 40px;
+
+/* ───────────────────────── Lenis smooth scroll ───────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ───────────────────────── Global polish ───────────────────────── */
+
+/* Text selection */
+::selection {
+  background-color: var(--accentColor);
+  color: #04110f;
+}
+
+/* Custom scrollbar (desktop) */
+@media (pointer: fine) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accentColor) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #060a12;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #14b8a6, #5eead4);
+    border-radius: 10px;
+    border: 2px solid #060a12;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accentColor);
+  }
+}
+
+/* Scroll progress bar (top of viewport) */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, #14b8a6, #5eead4, #67e8f9);
+  box-shadow: 0 0 12px rgba(94, 234, 212, 0.6);
+  z-index: 99999;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Soft animated grain/vignette for depth */
+.bg-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(
+    120% 120% at 50% 0%,
+    transparent 55%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+
+/* Accessible focus ring for keyboard users */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accentColor);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

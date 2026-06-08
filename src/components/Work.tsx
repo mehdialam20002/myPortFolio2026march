@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
+import useMagnetic from "./utils/useMagnetic";
 
 const projects = [
   {
@@ -44,6 +45,8 @@ const projects = [
 const Work = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const prevMagnet = useMagnetic<HTMLSpanElement>(0.4);
+  const nextMagnet = useMagnetic<HTMLSpanElement>(0.4);
 
   const goToSlide = useCallback(
     (index: number) => {
@@ -82,7 +85,9 @@ const Work = () => {
             aria-label="Previous project"
             data-cursor="disable"
           >
-            <MdArrowBack />
+            <span className="carousel-arrow-inner" ref={prevMagnet}>
+              <MdArrowBack />
+            </span>
           </button>
           <button
             className="carousel-arrow carousel-arrow-right"
@@ -90,7 +95,9 @@ const Work = () => {
             aria-label="Next project"
             data-cursor="disable"
           >
-            <MdArrowForward />
+            <span className="carousel-arrow-inner" ref={nextMagnet}>
+              <MdArrowForward />
+            </span>
           </button>
 
           {/* Slides */}
@@ -102,7 +109,12 @@ const Work = () => {
               }}
             >
               {projects.map((project, index) => (
-                <div className="carousel-slide" key={index}>
+                <div
+                  className={`carousel-slide ${
+                    index === currentIndex ? "is-active" : ""
+                  }`}
+                  key={index}
+                >
                   <div className="carousel-content">
                     <div className="carousel-info">
                       <div className="carousel-number">

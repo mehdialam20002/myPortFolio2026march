@@ -13,8 +13,8 @@
 }
 
 .career-section h2 {
-  font-size: 70px;
-  line-height: 70px;
+  font-size: clamp(2.4rem, 5.2vw + 0.5rem, 4.4rem);
+  line-height: 1.05;
   font-weight: 400;
   text-align: center;
   background: linear-gradient(0deg, #0d9488, #ffffff);
@@ -42,11 +42,30 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
+  padding: 18px 22px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.career-info-box:hover {
+  transform: translateY(-4px);
+  background-color: rgba(94, 234, 212, 0.04);
+  border-color: rgba(94, 234, 212, 0.18);
+}
+
+.career-info-box h4 {
+  transition: color 0.3s ease;
+}
+
+.career-info-box:hover h4 {
+  color: var(--accentColor);
 }
 
 .career-info-box p {
   width: 40%;
-  font-size: 18px;
+  font-size: clamp(0.95rem, 1.1vw, 1.125rem);
   font-weight: 300;
   margin: 0;
 }
@@ -59,15 +78,15 @@
 }
 
 .career-info h3 {
-  font-size: 48px;
+  font-size: clamp(1.9rem, 3.2vw, 3rem);
   margin: 0;
   font-weight: 500;
-  line-height: 45px;
+  line-height: 1.05;
 }
 
 .career-info h4 {
-  font-size: 33px;
-  line-height: 30px;
+  font-size: clamp(1.3rem, 2.3vw, 2.06rem);
+  line-height: 1.1;
   letter-spacing: 0.8px;
   font-weight: 500;
   margin: 0;
@@ -76,7 +95,7 @@
 .career-info h5 {
   font-weight: 400;
   letter-spacing: 0.7px;
-  font-size: 20px;
+  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
   text-transform: capitalize;
   margin: 10px 0px;
   color: var(--accentColor);
@@ -143,27 +162,8 @@
 }
 
 @media only screen and (max-width: 1400px) {
-  .career-section h2 {
-    font-size: 50px;
-    line-height: 50px;
-  }
-
   .career-info h4 {
-    font-size: 22px;
-    line-height: 24px;
     width: 180px;
-  }
-
-  .career-info h5 {
-    font-size: 17px;
-  }
-
-  .career-info h3 {
-    font-size: 40px;
-  }
-
-  .career-info-box p {
-    font-size: 14px;
   }
 
   .career-info-in {
@@ -215,17 +215,11 @@
 
   .career-section h2 {
     width: 100%;
-    font-size: 45px;
-    line-height: 45px;
     margin-top: 0px;
   }
 
   .career-info-in {
     gap: 0px;
-  }
-
-  .career-info h3 {
-    font-size: 33px;
   }
 
   .career-info-in,
