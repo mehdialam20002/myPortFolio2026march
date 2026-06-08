@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import About from "./About";
 import AskAI from "./AskAI";
+import BookCall from "./BookCall";
 import Career from "./Career";
 import Contact from "./Contact";
 import Cursor from "./Cursor";
@@ -61,6 +62,7 @@ const MainContainer = () => {
               <TechStack />
             </Suspense>
             <Credentials />
+            <BookCall />
             <Contact />
           </div>
         </div>

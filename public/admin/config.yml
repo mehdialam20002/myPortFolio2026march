@@ -183,6 +183,9 @@ collections:
         label: Contact
         file: src/content/contact.json
         fields:
+          - { name: bookingEyebrow, label: "Booking — eyebrow", widget: string }
+          - { name: bookingHeading, label: "Booking — heading", widget: string }
+          - { name: bookingCalLink, label: "Cal.com booking link", widget: string, required: false, hint: "Just the part after cal.com — e.g. mehdialam/30min" }
           - { name: eyebrow, label: Eyebrow, widget: string }
           - { name: ctaLine1, label: "CTA line 1", widget: string }
           - { name: ctaLine2, label: "CTA line 2", widget: string }

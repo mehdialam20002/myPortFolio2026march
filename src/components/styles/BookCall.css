@@ -1,0 +1,55 @@
+.book-section {
+  margin: auto;
+  position: relative;
+  z-index: 2;
+  background-color: var(--backgroundColor);
+  padding: clamp(44px, 6.5vw, 85px) 0;
+}
+
+.book-head {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: clamp(26px, 4vw, 44px);
+}
+
+.book-section h2 {
+  font-size: clamp(1.8rem, 3.8vw, 3.3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.book-embed {
+  height: clamp(560px, 78vh, 720px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+
+.book-placeholder {
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--bg-soft);
+}
+
+.book-placeholder p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  color: var(--fg);
+  line-height: 1.8;
+}
+
+.book-placeholder span {
+  color: var(--muted);
+  font-size: 0.8em;
+}
