@@ -13,7 +13,7 @@
   position: fixed;
   /* Anchor to the content column's left gutter: just-left of the centered
      container at every width, never overlapping the text, never detached. */
-  left: max(8px, calc(max(5vw, (100vw - var(--cMaxWidth)) / 2) - 46px));
+  left: max(8px, calc(max(9vw, (100vw - var(--cMaxWidth)) / 2) - 46px));
   bottom: 26px;
   display: none;
   flex-direction: column;

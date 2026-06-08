@@ -102,7 +102,7 @@
   .about-section {
     width: var(--cWidth);
     justify-content: right;
-    max-width: 1920px;
+    max-width: var(--cMaxWidth);
     height: var(--vh);
     padding: 0px;
     opacity: 1;
