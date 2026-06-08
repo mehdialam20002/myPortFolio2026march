@@ -102,7 +102,7 @@ const AskAI = () => {
           </button>
         </div>
 
-        <div className="askai-messages" ref={scrollRef}>
+        <div className="askai-messages" ref={scrollRef} data-lenis-prevent>
           {messages.map((m, i) => (
             <div key={i} className={`askai-msg askai-msg-${m.role}`}>
               {m.content}
