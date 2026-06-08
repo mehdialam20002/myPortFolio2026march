@@ -55,6 +55,32 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
 }
+.nav-toggle-li {
+  display: flex;
+  align-items: center;
+}
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 15px;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.4s ease;
+}
+.theme-toggle:hover {
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+  transform: rotate(35deg);
+}
+.theme-toggle-icon {
+  display: flex;
+}
 @media only screen and (min-width: 500px) {
   .header {
     padding: 20px 0px;

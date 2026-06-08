@@ -1,4 +1,14 @@
 /* ───────────────────────── Ask-AI floating widget ───────────────────────── */
+/* The widget is always dark glass — pin its tokens so it stays readable in
+   both light and dark site themes. */
+.askai-fab,
+.askai-panel {
+  --fg: #f0ede6;
+  --muted: #8f8d86;
+  --line: rgba(255, 255, 255, 0.12);
+  --bg-soft: #1b1917;
+}
+
 .askai-fab {
   position: fixed;
   right: 22px;

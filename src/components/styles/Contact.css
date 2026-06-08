@@ -13,9 +13,9 @@
 }
 
 .contact-cta {
-  font-size: clamp(2.8rem, 9vw, 8rem);
+  font-size: clamp(2.5rem, 7.5vw, 6rem);
   font-weight: 700;
-  line-height: 0.9;
+  line-height: 0.92;
   letter-spacing: -0.035em;
   text-transform: uppercase;
   margin: 0 0 clamp(34px, 5vw, 60px);

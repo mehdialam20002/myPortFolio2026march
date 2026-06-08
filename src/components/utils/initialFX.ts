@@ -3,11 +3,6 @@ import gsap from "gsap";
 export function initialFX() {
   document.body.style.overflowY = "auto";
   document.getElementsByTagName("main")[0].classList.add("main-active");
-  gsap.to("body", {
-    backgroundColor: "#0a0a0a",
-    duration: 0.5,
-    delay: 0.6,
-  });
 
   // Giant title lines sweep up from their masks.
   gsap.fromTo(

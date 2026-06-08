@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
+import ThemeToggle from "./ThemeToggle";
 import { gsap } from "gsap";
 import { getLenis } from "./utils/smoothScroll";
 import site from "../content/site.json";
@@ -57,6 +58,9 @@ const Navbar = () => {
               </a>
             </li>
           ))}
+          <li className="nav-toggle-li">
+            <ThemeToggle />
+          </li>
         </ul>
       </div>
 

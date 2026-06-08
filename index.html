@@ -9,6 +9,17 @@
   <meta name="description"
     content="Mehdi Alam — Full Stack Developer building scalable web applications with React.js, Node.js and FastAPI." />
   <meta name="theme-color" content="#0a0a0a" />
+  <script>
+    // Apply saved theme before paint to avoid a flash.
+    (function () {
+      try {
+        var t = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
   <meta property="og:title" content="Mehdi Alam — Full Stack Developer" />
   <meta property="og:description"
     content="Full Stack Developer crafting fast, scalable web experiences. React · Node · FastAPI." />
