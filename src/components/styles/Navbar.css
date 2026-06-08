@@ -1,9 +1,11 @@
 .header {
   display: flex;
+  align-items: center;
+  gap: 24px;
   max-width: var(--cMaxWidth);
   width: var(--cWidth);
   justify-content: space-between;
-  padding: 20px 0px;
+  padding: 18px 0px;
   margin-bottom: -100px;
   box-sizing: border-box;
   position: fixed;
@@ -33,14 +35,10 @@
   cursor: pointer;
 }
 .navbar-connect {
-  position: absolute;
   display: none;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  font-size: 12px;
+  letter-spacing: 0.06em;
   font-weight: 400;
   color: var(--muted);
   transition: color 0.3s ease;
@@ -104,16 +102,16 @@
 }
 @media only screen and (min-width: 1200px) {
   .header {
-    padding: 35px 0px;
+    padding: 24px 0px;
   }
   .header ul {
-    column-gap: 80px;
-    font-size: 16px;
+    column-gap: 44px;
+    font-size: 13px;
   }
   .navbar-connect {
-    font-size: 16px;
+    font-size: 13px;
   }
   .navbar-title {
-    font-size: 18px;
+    font-size: 16px;
   }
 }

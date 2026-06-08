@@ -1,7 +1,7 @@
 .contact-section {
   margin: auto;
-  padding-top: clamp(70px, 9vw, 130px);
-  padding-bottom: clamp(40px, 5vw, 70px);
+  padding-top: clamp(50px, 7vw, 95px);
+  padding-bottom: clamp(36px, 4.5vw, 60px);
   position: relative;
   z-index: 2;
   background-color: var(--backgroundColor);
@@ -13,7 +13,7 @@
 }
 
 .contact-cta {
-  font-size: clamp(2.5rem, 7.5vw, 6rem);
+  font-size: clamp(2rem, 5vw, 4.3rem);
   font-weight: 700;
   line-height: 0.92;
   letter-spacing: -0.035em;

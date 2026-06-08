@@ -3,7 +3,7 @@
   position: relative;
   z-index: 1;
   background-color: var(--backgroundColor);
-  padding: clamp(70px, 10vw, 140px) 0;
+  padding: clamp(50px, 7vw, 95px) 0;
 }
 
 .work-container {
@@ -18,7 +18,7 @@
 }
 
 .work-section h2 {
-  font-size: clamp(2.6rem, 6vw, 5.5rem);
+  font-size: clamp(2rem, 4.4vw, 4rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   text-transform: uppercase;
