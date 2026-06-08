@@ -1,0 +1,13 @@
+{
+  "eyebrow": "Profile",
+  "title": "About Me",
+  "bodyBefore": "I'm a Full-Stack Developer based in New Delhi, turning complex problems into ",
+  "bodyHighlight": "fast, scalable",
+  "bodyAfter": " web applications with React, Node.js and FastAPI — from API integration and responsive UIs to real performance optimization that users actually feel.",
+  "stats": [
+    { "value": "1+", "label": "Years building for production" },
+    { "value": "1,000+", "label": "Users served across apps" },
+    { "value": "35%", "label": "Faster page loads delivered" },
+    { "value": "8+", "label": "Shipped full-stack projects" }
+  ]
+}

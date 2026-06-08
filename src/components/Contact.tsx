@@ -1,68 +1,75 @@
-import { MdArrowOutward, MdCopyright } from "react-icons/md";
+import { MdArrowOutward } from "react-icons/md";
 import "./styles/Contact.css";
+import contact from "../content/contact.json";
 
 const Contact = () => {
   return (
-    <div className="contact-section section-container" id="contact">
+    <section className="contact-section section-container" id="contact">
       <div className="contact-container">
-        <h3>Contact</h3>
-        <div className="contact-flex">
-          <div className="contact-box">
-            <h4>Email</h4>
-            <p>
-              <a href="mailto:mehdi.alam20002@gmail.com" data-cursor="disable">
-                mehdi.alam20002@gmail.com
-              </a>
-            </p>
-            <h4>Education</h4>
-            <p>B.Tech in Data Science, Maharishi Markandeshwar University (GPA: 8.6/10)</p>
+        <span className="eyebrow">{contact.eyebrow}</span>
+
+        <h2 className="contact-cta">
+          {contact.ctaLine1}
+          <br />
+          {contact.ctaLine2}
+          <span className="accent-text">{contact.ctaHighlight}</span>
+        </h2>
+
+        <a
+          href={`mailto:${contact.email}`}
+          className="contact-email"
+          data-cursor="disable"
+        >
+          {contact.email}
+          <MdArrowOutward />
+        </a>
+
+        <div className="contact-footer">
+          <div className="contact-block">
+            <span className="contact-label">Socials</span>
+            <div className="contact-socials">
+              {contact.socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="contact-social"
+                  data-cursor="disable"
+                >
+                  {s.label}
+                  <MdArrowOutward />
+                </a>
+              ))}
+            </div>
           </div>
-          <div className="contact-box">
-            <h4>Social</h4>
+
+          <div className="contact-block">
+            <span className="contact-label">Direct</span>
             <a
-              href="https://github.com/mehdialam20002"
-              target="_blank"
+              href={contact.phoneHref}
+              className="contact-line"
               data-cursor="disable"
-              className="contact-social"
             >
-              Github <MdArrowOutward />
+              {contact.phone}
             </a>
-            <a
-              href="https://www.linkedin.com/in/mehdi-alam-9411751b7"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Linkedin <MdArrowOutward />
-            </a>
-            <a
-              href="https://x.com/Mehdi7862"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Twitter <MdArrowOutward />
-            </a>
-            <a
-              href="https://www.instagram.com/mehdiialam"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Instagram <MdArrowOutward />
-            </a>
+            <span className="contact-line contact-muted">{contact.location}</span>
           </div>
-          <div className="contact-box">
-            <h2>
-              Designed and Developed <br /> by <span>Mehdi Alam</span>
-            </h2>
-            <h5>
-              <MdCopyright /> 2026
-            </h5>
+
+          <div className="contact-block contact-block-end">
+            <span className="contact-label">Info</span>
+            <span className="contact-line">
+              Designed &amp; built by{" "}
+              <span className="accent-text">{contact.signature}</span>
+            </span>
+            <a href="#landingDiv" className="contact-top" data-cursor="disable">
+              Back to top ↑
+            </a>
+            <span className="contact-line contact-muted">{contact.year}</span>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

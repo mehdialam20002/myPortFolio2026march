@@ -9,25 +9,76 @@
   width: var(--cWidth);
   margin: auto;
 }
+
 .about-me {
   padding: 50px 0px;
   padding-bottom: 0;
   width: 500px;
   max-width: calc(100% - 15px);
 }
+
+.about-me .eyebrow {
+  margin-bottom: 18px;
+}
+
 .about-me h3 {
-  font-size: clamp(1.1rem, 2vw, 1.56rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
   text-transform: uppercase;
-  letter-spacing: clamp(3px, 1vw, 7px);
-  font-weight: 400;
-  color: var(--accentColor);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 0 24px;
+  color: var(--fg);
 }
 
 .about-me p {
-  font-size: clamp(1.5rem, 4.5vw, 2.06rem);
-  font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: 1px;
+  font-size: clamp(1.35rem, 2.6vw, 2rem);
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--fg);
+}
+
+/* ── Stats grid ── */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin-top: 44px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.about-stat {
+  background: var(--backgroundColor);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: background-color 0.35s ease;
+}
+
+.about-stat:hover {
+  background: var(--bg-soft);
+}
+
+.about-stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accentColor);
+  letter-spacing: -0.02em;
+}
+
+.about-stat-label {
+  font-family: var(--font-mono);
+  font-size: clamp(0.62rem, 1vw, 0.74rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
 }
 
 @media only screen and (min-width: 600px) {
@@ -35,9 +86,10 @@
     justify-content: center;
   }
 }
+
 @media only screen and (min-width: 768px) {
   .about-me {
-    width: 500px;
+    width: 560px;
     max-width: calc(100% - 70px);
     transform: translateY(0%);
   }
@@ -45,6 +97,7 @@
     opacity: 1;
   }
 }
+
 @media only screen and (min-width: 1025px) {
   .about-section {
     width: var(--cWidth);
@@ -56,16 +109,12 @@
   }
   .about-me {
     padding: 0px;
-    width: 50%;
-  }
-  .about-me p {
-    font-size: 1.9vw;
-    line-height: 2.3vw;
+    width: 48%;
   }
 }
-@media only screen and (min-width: 1950px) {
-  .about-me p {
-    font-size: 2.5rem;
-    line-height: 2.7rem;
+
+@media only screen and (max-width: 420px) {
+  .about-stats {
+    grid-template-columns: 1fr;
   }
 }

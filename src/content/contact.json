@@ -1,0 +1,18 @@
+{
+  "eyebrow": "Contact",
+  "ctaLine1": "Let's build",
+  "ctaLine2": "something ",
+  "ctaHighlight": "great.",
+  "email": "mehdialam20002@gmail.com",
+  "phone": "+91 77619 21786",
+  "phoneHref": "tel:+917761921786",
+  "location": "New Delhi, India",
+  "signature": "Mehdi Alam",
+  "year": "© 2026",
+  "socials": [
+    { "label": "GitHub", "href": "https://github.com/mehdialam20002" },
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/in/mehdi-alam-9411751b7" },
+    { "label": "Twitter / X", "href": "https://x.com/Mehdi7862" },
+    { "label": "Instagram", "href": "https://www.instagram.com/mehdiialam" }
+  ]
+}

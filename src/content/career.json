@@ -1,0 +1,21 @@
+{
+  "eyebrow": "Experience",
+  "headingLine1": "Career",
+  "headingLine2": "experience",
+  "jobs": [
+    {
+      "role": "Full-Stack Developer",
+      "company": "International Water Management Institute",
+      "place": "React.js · FastAPI — New Delhi",
+      "period": "Sep 2025 — Dec 2025",
+      "description": "Built scalable FastAPI backend services for large-scale data processing and API delivery, integrating PostgreSQL with efficient querying, preprocessing and caching. Converted complex climate & water-productivity research models into production-ready logic, and shipped modular data flows enabling real-time indicator calculations across districts and crops."
+    },
+    {
+      "role": "Software Development Engineer",
+      "company": "Finolity Consultancy Pvt. Ltd.",
+      "place": "React.js · Node.js — Patna",
+      "period": "May 2024 — May 2025",
+      "description": "Developed and optimized full-stack web apps for 1,000+ users with React.js and Node.js. Cut page load time by ~35% via code splitting, lazy loading and image optimization, built reusable UI components and API services that lifted dev speed by 25%, and integrated REST APIs for seamless frontend–backend communication."
+    }
+  ]
+}

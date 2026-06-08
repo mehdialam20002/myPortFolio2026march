@@ -1,0 +1,38 @@
+{
+  "eyebrow": "Toolbox",
+  "headingBefore": "Skills ",
+  "headingHighlight": "&",
+  "headingAfter": " Stack",
+  "groups": [
+    {
+      "id": "01",
+      "title": "Frontend",
+      "items": ["React.js", "Next.js", "JavaScript (ES6+)", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"]
+    },
+    {
+      "id": "02",
+      "title": "Backend",
+      "items": ["Node.js", "Express.js", "FastAPI", "REST APIs", "JWT Auth"]
+    },
+    {
+      "id": "03",
+      "title": "Databases",
+      "items": ["PostgreSQL", "MySQL", "MongoDB"]
+    },
+    {
+      "id": "04",
+      "title": "Tools & Flow",
+      "items": ["Git", "GitHub", "CI/CD", "Agile / Scrum", "Postman", "VS Code"]
+    },
+    {
+      "id": "05",
+      "title": "Core",
+      "items": ["Data Structures & Algorithms", "State Management", "API Integration", "Performance Optimization"]
+    },
+    {
+      "id": "06",
+      "title": "Architecture",
+      "items": ["Client–Server", "MVC Pattern", "Component-Driven UI"]
+    }
+  ]
+}

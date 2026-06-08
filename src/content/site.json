@@ -1,0 +1,23 @@
+{
+  "navTitle": "MEHDI",
+  "navEmail": "mehdialam20002@gmail.com",
+  "navLinks": [
+    { "label": "ABOUT", "href": "#about" },
+    { "label": "WORK", "href": "#work" },
+    { "label": "CONTACT", "href": "#contact" }
+  ],
+  "marqueeWords": [
+    "React.js",
+    "Node.js",
+    "FastAPI",
+    "TypeScript",
+    "PostgreSQL",
+    "Next.js",
+    "Express",
+    "MongoDB",
+    "REST APIs"
+  ],
+  "techHeadingBefore": "Tools I build ",
+  "techHeadingHighlight": "with",
+  "techWords": ["FastAPI", "PostgreSQL", "REST APIs", "JWT Auth", "Tailwind CSS", "Git & GitHub", "CI/CD", "Postman"]
+}

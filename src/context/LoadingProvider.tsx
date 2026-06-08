@@ -24,7 +24,20 @@ export const LoadingProvider = ({ children }: PropsWithChildren) => {
     setIsLoading,
     setLoading,
   };
-  useEffect(() => {}, [loading]);
+
+  // Self-driven loading progress (no 3D model to wait on anymore).
+  useEffect(() => {
+    let current = 0;
+    const id = setInterval(() => {
+      current += Math.random() * 13 + 5;
+      if (current >= 100) {
+        current = 100;
+        clearInterval(id);
+      }
+      setLoading(Math.round(current));
+    }, 90);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <LoadingContext.Provider value={value as LoadingType}>

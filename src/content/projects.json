@@ -1,0 +1,46 @@
+{
+  "eyebrow": "Selected Work",
+  "heading": "Projects",
+  "items": [
+    {
+      "title": "Aura Orbit",
+      "category": "AI-Powered Habit Intelligence System",
+      "tools": "Next.js · Supabase · Gemini API · Razorpay",
+      "year": "2026",
+      "image": "https://mehdiiialam.netlify.app/static/media/goodhabits.ea18b355e9e3b7b4a9f6.png",
+      "link": "https://goodhabits-teal.vercel.app/"
+    },
+    {
+      "title": "Water Productivity Atlas",
+      "category": "Full-Stack Scenario Modelling Dashboard",
+      "tools": "React · FastAPI · PostgreSQL · Pandas",
+      "year": "2025",
+      "image": "https://mehdiiialam.netlify.app/static/media/elearn.1b585492490c8c1cace9.png",
+      "link": "https://indiawpatlas.shinyapps.io/wpatlas/#/scenario"
+    },
+    {
+      "title": "HighQClasses",
+      "category": "Modular E-Learning Platform",
+      "tools": "React · Node.js · MySQL · JWT",
+      "year": "2025",
+      "image": "https://mehdiiialam.netlify.app/static/media/highq.f9cab5bcffa63575861b.png",
+      "link": "http://highqclasses.ideovent.com/"
+    },
+    {
+      "title": "Ideovent.com",
+      "category": "Agency Website + Gemini Chatbot",
+      "tools": "React · TypeScript · Serverless · Gemini API",
+      "year": "2025",
+      "image": "https://mehdiiialam.netlify.app/static/media/gstrucking.fb8ab7f271a937d5fc01.png",
+      "link": "https://www.ideovent.com/"
+    },
+    {
+      "title": "Gmail → Calendar Automation",
+      "category": "Smart Reminders with AI Summaries",
+      "tools": "Apps Script · Gmail API · Calendar API · Gemini",
+      "year": "2025",
+      "image": "https://mehdiiialam.netlify.app/static/media/highq.f9cab5bcffa63575861b.png",
+      "link": "https://github.com/mehdialam20002/gmaill-starred-reminder"
+    }
+  ]
+}

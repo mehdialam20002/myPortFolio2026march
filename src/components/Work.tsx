@@ -1,161 +1,86 @@
-import { useState, useCallback } from "react";
+import { useRef, useState, type MouseEvent } from "react";
 import "./styles/Work.css";
-import WorkImage from "./WorkImage";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
-import useMagnetic from "./utils/useMagnetic";
+import { MdArrowOutward } from "react-icons/md";
+import projectsContent from "../content/projects.json";
 
-const projects = [
-  {
-    title: "Aura Orbit",
-    category: "AI-Powered Habit Intelligence System",
-    tools: "React.js, Node.js, Gemini API, Razorpay",
-    image: "https://mehdiiialam.netlify.app/static/media/goodhabits.ea18b355e9e3b7b4a9f6.png",
-    link: "https://goodhabits-teal.vercel.app/", // Placeholder, replace with actual demo link
-  },
-  {
-    title: "HighQClasses",
-    category: "Modular E-Learning Platform",
-    tools: "React, Node.js, MySQL, JWT",
-    image: "https://mehdiiialam.netlify.app/static/media/highq.f9cab5bcffa63575861b.png",
-    link: "http://highqclasses.ideovent.com/", // Placeholder
-  },
-  {
-    title: "Water Productivity Atlas",
-    category: "Scenario Modelling Dashboard",
-    tools: "FastAPI, PostgreSQL, Python",
-    image: "https://mehdiiialam.netlify.app/static/media/elearn.1b585492490c8c1cace9.png",
-    link: "https://indiawpatlas.shinyapps.io/wpatlas/#/scenario", // Placeholder
-  },
-  {
-    title: "Gmail → Calendar Automation",
-    category: "Smart Reminders Automation",
-    tools: "Gemini API, Google APIs, NLP",
-    image: "https://mehdiiialam.netlify.app/static/media/gstrucking.fb8ab7f271a937d5fc01.png",
-    link: "https://github.com/mehdialam20002/gmaill-starred-reminder", // Placeholder
-  },
-  {
-    title: "Ideovent.com",
-    category: "Agency Website + Chatbot",
-    tools: "React, Netlify, Gemini API",
-    image: "https://mehdiiialam.netlify.app/static/media/highq.f9cab5bcffa63575861b.png",
-    link: "https://www.ideovent.com/",
-  },
-];
+const projects = projectsContent.items;
 
 const Work = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const prevMagnet = useMagnetic<HTMLSpanElement>(0.4);
-  const nextMagnet = useMagnetic<HTMLSpanElement>(0.4);
+  const previewRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState<number | null>(null);
 
-  const goToSlide = useCallback(
-    (index: number) => {
-      if (isAnimating) return;
-      setIsAnimating(true);
-      setCurrentIndex(index);
-      setTimeout(() => setIsAnimating(false), 500);
-    },
-    [isAnimating]
-  );
-
-  const goToPrev = useCallback(() => {
-    const newIndex =
-      currentIndex === 0 ? projects.length - 1 : currentIndex - 1;
-    goToSlide(newIndex);
-  }, [currentIndex, goToSlide]);
-
-  const goToNext = useCallback(() => {
-    const newIndex =
-      currentIndex === projects.length - 1 ? 0 : currentIndex + 1;
-    goToSlide(newIndex);
-  }, [currentIndex, goToSlide]);
+  const handleMove = (e: MouseEvent) => {
+    const el = previewRef.current;
+    if (!el) return;
+    el.style.setProperty("--mx", `${e.clientX}px`);
+    el.style.setProperty("--my", `${e.clientY}px`);
+  };
 
   return (
-    <div className="work-section" id="work">
+    <section
+      className="work-section"
+      id="work"
+      onMouseMove={handleMove}
+    >
       <div className="work-container section-container">
-        <h2>
-          My <span>Work</span>
-        </h2>
-
-        <div className="carousel-wrapper">
-          {/* Navigation Arrows */}
-          <button
-            className="carousel-arrow carousel-arrow-left"
-            onClick={goToPrev}
-            aria-label="Previous project"
-            data-cursor="disable"
-          >
-            <span className="carousel-arrow-inner" ref={prevMagnet}>
-              <MdArrowBack />
-            </span>
-          </button>
-          <button
-            className="carousel-arrow carousel-arrow-right"
-            onClick={goToNext}
-            aria-label="Next project"
-            data-cursor="disable"
-          >
-            <span className="carousel-arrow-inner" ref={nextMagnet}>
-              <MdArrowForward />
-            </span>
-          </button>
-
-          {/* Slides */}
-          <div className="carousel-track-container">
-            <div
-              className="carousel-track"
-              style={{
-                transform: `translateX(-${currentIndex * 100}%)`,
-              }}
-            >
-              {projects.map((project, index) => (
-                <div
-                  className={`carousel-slide ${
-                    index === currentIndex ? "is-active" : ""
-                  }`}
-                  key={index}
-                >
-                  <div className="carousel-content">
-                    <div className="carousel-info">
-                      <div className="carousel-number">
-                        <h3>0{index + 1}</h3>
-                      </div>
-                      <div className="carousel-details">
-                        <h4>{project.title}</h4>
-                        <p className="carousel-category">
-                          {project.category}
-                        </p>
-                        <div className="carousel-tools">
-                          <span className="tools-label">Tools & Features</span>
-                          <p>{project.tools}</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="carousel-image-wrapper">
-                      <WorkImage image={project.image} alt={project.title} link={project.link} />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Dot Indicators */}
-          <div className="carousel-dots">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                className={`carousel-dot ${index === currentIndex ? "carousel-dot-active" : ""
-                  }`}
-                onClick={() => goToSlide(index)}
-                aria-label={`Go to project ${index + 1}`}
-                data-cursor="disable"
-              />
-            ))}
-          </div>
+        <div className="work-head">
+          <span className="eyebrow">{projectsContent.eyebrow}</span>
+          <h2>
+            {projectsContent.heading}
+            <span className="accent-text">.</span>
+          </h2>
         </div>
+
+        <ul className="work-list">
+          {projects.map((project, index) => (
+            <li
+              key={project.title}
+              className={`work-row ${active === index ? "is-active" : ""} ${
+                active !== null && active !== index ? "is-dim" : ""
+              }`}
+              onMouseEnter={() => setActive(index)}
+              onMouseLeave={() => setActive(null)}
+            >
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                className="work-row-link"
+                data-cursor="disable"
+              >
+                <span className="work-num">{`0${index + 1}`}</span>
+                <span className="work-title">{project.title}</span>
+                <span className="work-meta">
+                  <span className="work-cat">{project.category}</span>
+                  <span className="work-tools">{project.tools}</span>
+                </span>
+                <span className="work-year">{project.year}</span>
+                <span className="work-arrow">
+                  <MdArrowOutward />
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
+
+      {/* Cursor-following preview (desktop) */}
+      <div
+        ref={previewRef}
+        className={`work-preview ${active !== null ? "is-visible" : ""}`}
+        aria-hidden="true"
+      >
+        {projects.map((project, index) => (
+          <img
+            key={project.title}
+            src={project.image}
+            alt=""
+            className={active === index ? "is-shown" : ""}
+            loading="lazy"
+          />
+        ))}
+      </div>
+    </section>
   );
 };
 

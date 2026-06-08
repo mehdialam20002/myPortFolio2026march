@@ -1,35 +1,36 @@
-import { lazy, PropsWithChildren, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import About from "./About";
+import AskAI from "./AskAI";
 import Career from "./Career";
 import Contact from "./Contact";
 import Cursor from "./Cursor";
 import Landing from "./Landing";
+import MarqueeStrip from "./MarqueeStrip";
 import Navbar from "./Navbar";
 import ScrollProgress from "./ScrollProgress";
+import Skills from "./Skills";
+import Credentials from "./Credentials";
 import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
+import { setCareerTimeline } from "./utils/careerFX";
 import { initSmoothScroll, destroySmoothScroll } from "./utils/smoothScroll";
 
 const TechStack = lazy(() => import("./TechStack"));
 
-const MainContainer = ({ children }: PropsWithChildren) => {
-  const [isDesktopView, setIsDesktopView] = useState<boolean>(
-    window.innerWidth > 1024
-  );
-
+const MainContainer = () => {
   useEffect(() => {
     const resizeHandler = () => {
       setSplitText();
-      setIsDesktopView(window.innerWidth > 1024);
     };
     resizeHandler();
+    setCareerTimeline();
     window.addEventListener("resize", resizeHandler);
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  }, [isDesktopView]);
+  }, []);
 
   useEffect(() => {
     initSmoothScroll();
@@ -45,20 +46,21 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       <Cursor />
       <Navbar />
       <SocialIcons />
-      {isDesktopView && children}
+      <AskAI />
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="container-main">
-            <Landing>{!isDesktopView && children}</Landing>
+            <Landing />
             <About />
             <WhatIDo />
             <Career />
+            <MarqueeStrip />
             <Work />
-            {isDesktopView && (
-              <Suspense fallback={<div>Loading....</div>}>
-                <TechStack />
-              </Suspense>
-            )}
+            <Skills />
+            <Suspense fallback={null}>
+              <TechStack />
+            </Suspense>
+            <Credentials />
             <Contact />
           </div>
         </div>

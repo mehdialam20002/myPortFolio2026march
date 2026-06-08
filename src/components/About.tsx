@@ -1,13 +1,26 @@
 import "./styles/About.css";
+import about from "../content/about.json";
 
 const About = () => {
   return (
     <div className="about-section" id="about">
       <div className="about-me">
-        <h3 className="title">About Me</h3>
+        <span className="eyebrow">{about.eyebrow}</span>
+        <h3 className="title">{about.title}</h3>
         <p className="para">
-          I'm a Software Developer based in Delhi, India, with 1+ years of experience building scalable, production-ready web applications. I specialize in full-stack development using React.js, Node.js, FastAPI, and PostgreSQL, with a focus on performance optimization and clean, maintainable code. Passionate about solving real-world problems through technology.
+          {about.bodyBefore}
+          <span className="accent-text">{about.bodyHighlight}</span>
+          {about.bodyAfter}
         </p>
+
+        <div className="about-stats">
+          {about.stats.map((s) => (
+            <div className="about-stat" key={s.label}>
+              <span className="about-stat-value">{s.value}</span>
+              <span className="about-stat-label">{s.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

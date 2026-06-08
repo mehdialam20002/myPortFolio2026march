@@ -12,23 +12,41 @@
   padding: 120px 0px;
 }
 
+.career-section .eyebrow {
+  margin-top: 40px;
+  margin-bottom: 18px;
+}
+
 .career-section h2 {
-  font-size: clamp(2.4rem, 5.2vw + 0.5rem, 4.4rem);
-  line-height: 1.05;
-  font-weight: 400;
+  font-size: clamp(2.4rem, 5.2vw + 0.5rem, 4.6rem);
+  line-height: 0.98;
+  font-weight: 700;
   text-align: center;
-  background: linear-gradient(0deg, #0d9488, #ffffff);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  background: linear-gradient(0deg, var(--accentColor), var(--fg) 80%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  margin-top: 50px;
+  margin-top: 0;
   margin-bottom: 90px;
 }
 
 .career-section h2>span {
-  font-family: "Geist", sans-serif;
+  font-family: var(--font-display);
   font-weight: 300;
+  font-style: italic;
+}
+
+.career-place {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(0.62rem, 1vw, 0.72rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 8px;
 }
 
 .career-info {
@@ -109,8 +127,8 @@
   width: 3px;
   height: 100%;
   background-image: linear-gradient(to top,
-      #14b8a6 20%,
-      var(--accentColor) 50%,
+      var(--accentColor) 20%,
+      var(--accent2) 50%,
       transparent 95%);
   max-height: 0%;
 }
@@ -120,12 +138,12 @@
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
-  background-color: #14b8a6;
+  background-color: var(--accentColor);
   width: 10px;
   height: 10px;
   border-radius: 50px;
-  box-shadow: 0px 0px 5px 2px #67e8f9, 0px 0px 15px 8px #5eead4,
-    0px 0px 110px 20px #a5f3fc;
+  box-shadow: 0px 0px 5px 2px #ff7a52, 0px 0px 15px 8px #ff8a5b,
+    0px 0px 110px 20px #ffb38f;
   animation: timeline 0.8s linear infinite forwards;
 }
 
@@ -136,7 +154,7 @@
   50%,
   70%,
   90% {
-    box-shadow: 0px 0px 5px 2px #67e8f9;
+    box-shadow: 0px 0px 5px 2px #ff7a52;
   }
 
   10%,
@@ -145,19 +163,8 @@
   100%,
   64%,
   80% {
-    box-shadow: 0px 0px 5px 2px #67e8f9, 0px 0px 15px 5px #5eead4,
-      0px 0px 110px 20px #a5f3fc;
-  }
-}
-
-@keyframes timeline2 {
-  0% {
-    box-shadow: 0px 0px 5px 2px #67e8f9;
-  }
-
-  100% {
-    box-shadow: 0px 0px 5px 2px #67e8f9, 0px 0px 15px 5px #5eead4,
-      0px 0px 110px 20px #a5f3fc;
+    box-shadow: 0px 0px 5px 2px #ff7a52, 0px 0px 15px 5px #ff8a5b,
+      0px 0px 110px 20px #ffb38f;
   }
 }
 
