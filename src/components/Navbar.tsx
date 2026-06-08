@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiMenu, FiX } from "react-icons/fi";
+import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import { TbNotes } from "react-icons/tb";
 import HoverLinks from "./HoverLinks";
 import ThemeToggle from "./ThemeToggle";
 import { gsap } from "gsap";
@@ -71,6 +73,47 @@ const Navbar = () => {
         </ul>
 
         <div className="nav-actions">
+          <div className="nav-socials">
+            <a
+              href="https://github.com/mehdialam20002/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              data-cursor="disable"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/mehdi-alam-9411751b7/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              data-cursor="disable"
+            >
+              <FaLinkedinIn />
+            </a>
+            <a
+              href="https://www.instagram.com/mehdiialam"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              data-cursor="disable"
+            >
+              <FaInstagram />
+            </a>
+          </div>
+          {site.resumeUrl && (
+            <a
+              className="nav-resume"
+              href={site.resumeUrl}
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="disable"
+            >
+              <HoverLinks text="RESUME" />
+              <TbNotes />
+            </a>
+          )}
           <ThemeToggle />
           <button
             className="nav-burger"

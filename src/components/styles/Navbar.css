@@ -54,11 +54,48 @@
   cursor: pointer;
 }
 
-/* right-side actions (theme + burger) */
+/* right-side actions (socials + resume + theme + burger) */
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+}
+
+.nav-socials {
+  display: none;
+  align-items: center;
+  gap: 15px;
+  font-size: 17px;
+}
+.nav-socials a {
+  display: flex;
+  color: var(--fg);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.nav-socials a:hover {
+  color: var(--accentColor);
+  transform: translateY(-2px);
+}
+
+.nav-resume {
+  display: none;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--fg);
+  padding-left: 16px;
+  border-left: 1px solid var(--line);
+  transition: color 0.25s ease;
+}
+.nav-resume:hover {
+  color: var(--accentColor);
+}
+.nav-resume svg {
+  font-size: 15px;
 }
 
 .theme-toggle {
@@ -121,8 +158,22 @@
   pointer-events: auto;
 }
 
-/* show email only on wide screens (avoids crowding the nav) */
+/* RESUME pill appears once there's room */
+@media only screen and (min-width: 820px) {
+  .nav-resume {
+    display: inline-flex;
+  }
+}
+
+/* social rail moves into the nav on desktop */
 @media only screen and (min-width: 1100px) {
+  .nav-socials {
+    display: inline-flex;
+  }
+}
+
+/* show email only on the widest screens (avoids crowding the nav) */
+@media only screen and (min-width: 1360px) {
   .navbar-connect {
     display: block;
   }

@@ -12,7 +12,6 @@ import ScrollProgress from "./ScrollProgress";
 import Skills from "./Skills";
 import Credentials from "./Credentials";
 import Testimonials from "./Testimonials";
-import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
@@ -45,7 +44,6 @@ const MainContainer = () => {
       <ScrollProgress />
       <Cursor />
       <Navbar />
-      <SocialIcons />
       <AskAI />
       <div id="smooth-wrapper">
         <div id="smooth-content">
