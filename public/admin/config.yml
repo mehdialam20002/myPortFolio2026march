@@ -187,6 +187,7 @@ collections:
         fields:
           - { name: navTitle, label: "Nav title", widget: string }
           - { name: navEmail, label: "Nav email", widget: string }
+          - { name: resumeUrl, label: "Resume / CV link (paste a Google Drive / PDF URL)", widget: string, required: false }
           - name: navLinks
             label: Nav links
             widget: list

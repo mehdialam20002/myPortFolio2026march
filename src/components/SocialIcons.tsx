@@ -7,6 +7,7 @@ import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
 import { useEffect } from "react";
 import HoverLinks from "./HoverLinks";
+import site from "../content/site.json";
 
 const SocialIcons = () => {
   useEffect(() => {
@@ -79,7 +80,12 @@ const SocialIcons = () => {
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#">
+      <a
+        className="resume-button"
+        href={site.resumeUrl || "#"}
+        target={site.resumeUrl ? "_blank" : undefined}
+        rel={site.resumeUrl ? "noreferrer" : undefined}
+      >
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />
