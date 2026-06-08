@@ -79,7 +79,10 @@
   text-transform: uppercase;
   letter-spacing: -0.035em;
   line-height: 0.86;
-  font-size: clamp(2.7rem, 9vw, 8rem);
+  font-size: clamp(2.6rem, 8.4vw, 7.4rem);
+  /* keep the right-aligned 2nd line ("DEVELOPER") off the edge so it never
+     looks clipped, while the left line stays flush for the full-width feel */
+  padding-right: clamp(0px, 6vw, 110px);
 }
 
 .hero-line {
