@@ -98,6 +98,13 @@ main {
   }
 }
 
+/* Clip horizontal overflow at the root too — iOS Safari does NOT clip
+   off-screen position:fixed elements (e.g. the closed slide-in menu) with
+   body overflow alone, which leaks a right-side gap / horizontal scroll. */
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   height: auto;
