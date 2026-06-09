@@ -13,8 +13,7 @@
 .about-me {
   padding: 50px 0px;
   padding-bottom: 0;
-  width: 500px;
-  max-width: calc(100% - 15px);
+  width: 100%;
 }
 
 .about-me .eyebrow {
@@ -37,6 +36,7 @@
   line-height: 1.28;
   letter-spacing: -0.01em;
   margin: 0;
+  max-width: 46ch; /* keep a readable line length even at full width */
   color: var(--fg);
 }
 
@@ -89,19 +89,14 @@
 
 @media only screen and (min-width: 768px) {
   .about-me {
-    width: 560px;
-    max-width: calc(100% - 70px);
-    transform: translateY(0%);
-  }
-  .about-section {
-    opacity: 1;
+    padding: 80px 0;
   }
 }
 
 @media only screen and (min-width: 1025px) {
   .about-section {
     width: var(--cWidth);
-    justify-content: right;
+    justify-content: flex-start;
     max-width: var(--cMaxWidth);
     height: var(--vh);
     padding: 0px;
@@ -109,7 +104,11 @@
   }
   .about-me {
     padding: 0px;
-    width: 48%;
+    width: 100%;
+  }
+  /* full-width stat row, consistent with the other sections */
+  .about-stats {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
