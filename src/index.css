@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist:wght@100..900&family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist:wght@100..900&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap");
 
 :root {
   font-family: "Geist", sans-serif;
@@ -31,6 +31,16 @@
 
   --font-display: "Bricolage Grotesque", "Geist", sans-serif;
   --font-mono: "Space Mono", monospace;
+  --font-serif: "Instrument Serif", "Georgia", serif;
+
+  /* Fluid type scale — one harmonious system used across the site */
+  --step--1: clamp(0.78rem, 0.72rem + 0.3vw, 0.92rem);
+  --step-0: clamp(1rem, 0.94rem + 0.3vw, 1.15rem);
+  --step-1: clamp(1.2rem, 1.05rem + 0.7vw, 1.6rem);
+  --step-2: clamp(1.55rem, 1.3rem + 1.2vw, 2.4rem);
+  --step-3: clamp(2rem, 1.5rem + 2.4vw, 3.6rem);
+  --step-4: clamp(2.6rem, 1.7rem + 4.2vw, 5.6rem);
+  --step-5: clamp(3.2rem, 1.6rem + 7vw, 8rem);
 
   --vh: 100vh;
   --vh: 100svh;
@@ -131,9 +141,15 @@ body {
   50% { opacity: 0.35; transform: scale(0.7); }
 }
 
-/* Accent for inline highlighted words */
+/* Accent for inline highlighted words — elegant serif italic for editorial flair */
 .accent-text {
   color: var(--accentColor);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  /* serif x-height runs small next to the sans — nudge size up to match */
+  font-size: 1.08em;
 }
 
 /* A hairline rule used to separate editorial sections */
