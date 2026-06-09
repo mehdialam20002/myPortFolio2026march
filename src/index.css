@@ -93,7 +93,9 @@ body {
   height: auto;
   background-color: var(--backgroundColor);
   flex-grow: 1;
-  --cWidth: 100%;
+  /* symmetric side padding that scales with the viewport
+     (each side = half of the gutter: ~20px mobile → ~60px desktop) */
+  --cWidth: calc(100% - clamp(40px, 6vw, 120px));
   --cMaxWidth: 100%;
   max-width: 100vw;
   overflow-x: hidden;
